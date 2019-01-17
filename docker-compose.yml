@@ -1,0 +1,14 @@
+version: '2'
+services:
+  security:
+    build: ./task
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+    volumes:
+      - ./task/testexersice-local:/app/api
+  db:
+    build: ./database-servise
